@@ -1,5 +1,7 @@
 # Astro MDX RSS Starter
 
+Check out the example by visiting [https://ddamato.github.io/astro-mdx-rss/rss.xml](https://ddamato.github.io/astro-mdx-rss/rss.xml)
+
 Did you expect to render MDX posts into your RSS feed with Astro, only to find out that you can only render MDX in `.astro` files? Yep, me too.
 
 Astro is working on the [Container API](https://github.com/withastro/roadmap/issues/533) which is expected to solve the problem. In the meantime, you can consider this repo which uses Astro's blog starter as the base with a few updates.
@@ -72,6 +74,7 @@ const posts = await getCollection('blog');
 - The `<Fragment set:html={ `<link>${ Astro.url.origin }</link>` }/>` is needed because Astro considers `<link>` to be a self-closing tag and won't render the ending tag causing the feed to be invalid. We circumvent this by writing the HTML using `set:html` in a `<Fragment/>`.
 - The whole purpose of this is the `<Content/>` element, which _must_ be rendered in an `.astro` file. We flank both sides with `<Fragment is:raw>` elements which tells Astro not to process anything between the `<Fragment/>` tags. This allows the `<content:encoding>` and `CDATA` to render as a string.
 
-> [!NOTE] Hitting `/rss` in the browser does not provide an XML response, but an HTML one. So mileage may vary about how valid that appears to syndication.
+> [!NOTE]
+> Hitting `/rss` in the browser does not provide an XML response, but an HTML one. So mileage may vary about how valid that appears to syndication.
 
 And now hitting `/rss.xml` should provide a fully qualified RSS feed with rendered MDX! You'll most likely need to update the `/pages/rss.astro` file for a more detailed feed.
