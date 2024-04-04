@@ -1,5 +1,8 @@
 # Astro MDX RSS Starter
 
+> [!WARNING]
+> This doesn't work as a built site, but it does work in local dev. I have an [open proposal](https://github.com/withastro/roadmap/discussions/881) to help this concept along and potentially omit the need for `rss.xml.js` as a proxy for the resulting XML.
+
 Check out the example by visiting [https://ddamato.github.io/astro-mdx-rss/rss.xml](https://ddamato.github.io/astro-mdx-rss/rss.xml)
 
 Did you expect to render MDX posts into your RSS feed with Astro, only to find out that you can only render MDX in `.astro` files? Yep, me too.
